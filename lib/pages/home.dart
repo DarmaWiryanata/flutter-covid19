@@ -10,7 +10,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Home')),
+      appBar: AppBar(title: Text('Visualisasi')),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
@@ -67,11 +67,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 ]),
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  _buildTextH2(title),
-                  _buildTextP(description),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      _buildTextH2(title),
+                      _buildTextP(description),
+                    ],
+                  ),
+                  IconButton(
+                      icon: Icon(Icons.add),
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/FormScreen');
+                      },
+                      tooltip: 'Isi Survei')
                 ],
               ),
             )));
